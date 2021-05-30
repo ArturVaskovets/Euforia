@@ -1,0 +1,12 @@
+#Virtual environment
+venv/*
+!venv/README.md
+
+#Python
+__pycache__
+
+#Visual Studio Code
+.vscode
+
+#Garbage
+static/css/_*.css
