@@ -7,7 +7,11 @@ Mobility(app)
 @app.route('/')
 @mobile_template('{mobile/}home.html')
 def home(template):
-    return render_template(template)
+    data = {
+        "current_section": "home",
+        "header_extra_image": url_for('static', filename='img/2021.png')
+    }
+    return render_template(template, **data)
 
 
 """

@@ -1,23 +1,47 @@
 <header class="header">
 	<div class="top_header">
-		<div class="contact">
-			<div class="phone">
-				+34 664 072 388
-			</div>
-		</div>
-		<div class="social">
-			<a href="#" class="icon">
-				
-			</a>
-		</div>
-		<div class="search">
-
-		</div>
-		<div class="shopping">
-
-		</div>
+        <div class="top_header_inner container">
+            <div class="contact">
+                <a href="tel:+34 664 072 388" class="phone">
+                    +34 664 072 388
+                </a>
+            </div>
+            <div class="social">
+                <a href="#" class="icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icon">
+                    <i class="fab fa-google-plus-g"></i>
+                </a>
+            </div>
+            <div class="search">
+                <a class="search_text">
+                    ¿Que estoy buscando?
+                </a>
+            </div>
+            <div class="shopping">
+                <a href="#" class="icon login">
+                    <i class="far fa-user"></i>
+                </a>
+                <a href="#" class="icon shopping_cart">
+                    <i class="fas fa-shopping-bag"></i>
+                </a>
+            </div>
+        </div>
 	</div>
 	<div class="main_header">
-
+        <div class="main_header_inner container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}">
+            </div>
+            {% if header_extra_image %}
+                <div class="extra_image">
+                    <img src="{{ header_extra_image|safe }}">
+                </div>
+            {% endif %}
+        </div>
 	</div>
 </header>

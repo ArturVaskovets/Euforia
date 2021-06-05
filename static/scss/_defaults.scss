@@ -11,7 +11,8 @@ $font_2: 'Lato', sans-serif;
 
 $color_1: #9966cc;
 $color_2: #bba0ef;
-
+$color_3: #131313;
+$color_4: #D7D7D8;
 
 * {
 	box-sizing: border-box;
@@ -21,6 +22,7 @@ body {
 	font-family: $font_2;
 	margin: 0;
 	padding: 0;
+	-webkit-font-smoothing: antialiased;
 }
 
 a {
