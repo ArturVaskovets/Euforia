@@ -5,8 +5,6 @@ venv/*
 #Python
 __pycache__
 
-#Visual Studio Code
+#Project settings
 .vscode
-
-#Garbage
-static/css/_*.css
+.idea

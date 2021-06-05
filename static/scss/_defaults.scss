@@ -1,34 +1,24 @@
 @import "mixins.scss";
 @import "animations.scss";
 
-// Fonts
 
-// Raleway + Montserrat
-// Dosis + Roboto Slab
-// Roboto
-// Open Sans
-// Lato
-// Source Sans Pro
-// Oswald
-// Poppins
-// Libre Baskerville + Merriweather
-
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
-$font_1: 'Lato', sans-serif;
-$font_2: 'Oswald', sans-serif;
+$font_1: 'Dancing Script', cursive;
+$font_2: 'Lato', sans-serif;
 
-$bg_light: #E4EFFF;
-$bg_dark: #336699;
+
+$color_1: #9966cc;
+$color_2: #bba0ef;
+
 
 * {
 	box-sizing: border-box;
 }
 
 body {
-	font-family: $font_1;
+	font-family: $font_2;
 	margin: 0;
 	padding: 0;
 }
