@@ -7,14 +7,14 @@
                 </a>
             </div>
             <div class="social">
-                <a href="#" class="icon">
+                <a href="https://www.instagram.com/" class="icon">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="icon">
+                <a href="https://es-es.facebook.com/" class="icon">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="icon">
-                    <i class="fab fa-google-plus-g"></i>
+                <a href="https://twitter.com/" class="icon">
+                    <i class="fab fa-twitter"></i>
                 </a>
             </div>
             <div class="search">
@@ -34,7 +34,7 @@
 	</div>
 	<div class="main_header">
         <div class="main_header_inner container">
-            <a href="/" class="logo">
+            <a href="{{ url_for('home') }}" class="logo">
                 <img src="{{ url_for('static', filename='img/logo.png') }}">
             </a>
             {% if header_extra_image %}

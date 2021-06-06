@@ -1,0 +1,25 @@
+<section class="full_width_block container_fluid {% if block.extra_class %}{{ block.extra_class|safe }}{% endif %}">
+    <div class="bg_image">
+        <img src="{{ block.bg_img|safe }}">
+    </div>
+    {% if block.caption or block.caption_title or block.caption_desc %}
+        <div class="caption">
+            {% if block.caption_title %}
+                <div class="caption_title">
+                    {{ block.caption_title|safe }}
+                </div>
+            {% endif %}
+            {% if block.caption_desc %}
+                <div class="caption_desc">
+                    {{ block.caption_desc|safe }}
+                </div>
+            {% endif %}
+            {% if block.caption_link %}
+                <a href="{{ block.caption_link|safe }}" class="caption_link">
+                    Ver galería
+                </a>
+            {% endif %}
+            {{ block.caption|safe }}
+        </div>
+    {% endif %}
+</section>

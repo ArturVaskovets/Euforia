@@ -1,0 +1,82 @@
+.full_width_block {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  .bg_image {
+    width: 100%;
+    height: auto;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .caption {
+    @include center;
+    font-family: $font_2;
+    font-weight: 400;
+    font-size: 85px;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-shadow: 0 5px 5px rgba(black, 0.3);
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: center;
+    color: black;
+  }
+}
+
+.full_width_block.red_girl {
+  .caption {
+    left: 65%;
+  }
+}
+
+.full_width_block.blue_girl {
+  .caption {
+    left: 75%;
+    text-transform: none;
+    color: #ccccff;
+
+    .caption_title {
+      font-size: 65px;
+      margin-bottom: 40px;
+    }
+
+    .caption_desc {
+      padding: 30px 20px;
+      margin-bottom: 20px;
+      border: 6px solid #000033;
+      font-style: italic;
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    .caption_link {
+      position: relative;
+      display: table;
+      margin: 0 auto;
+      font-size: 35px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: transparent;
+        transition: all 0.5s;
+      }
+    }
+
+    .caption_link:hover {
+      &::before {
+        background-color: #ccccff;
+      }
+    }
+  }
+}

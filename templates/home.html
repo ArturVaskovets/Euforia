@@ -3,4 +3,8 @@
 {% block content %}
 	{% include "sections/_header.html" %}
     {% include "sections/_main_slider.html" %}
+    {% for block in full_width_blocks %}
+        {% include "sections/_full_width_block.html" %}
+    {% endfor %}
+    {% include "sections/_footer.html" %}
 {% endblock %}

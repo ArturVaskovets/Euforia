@@ -1,0 +1,81 @@
+<footer class="footer container_fluid">
+    <a class="scroll_top"></a>
+	<div class="top_footer container">
+		<div class="col">
+			<a href="{{ url_for('home') }}" class="logo">
+				<img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+			</a>
+		</div>
+		<div class="col">
+			<div class="title">
+				Contactos
+			</div>
+			<div class="contacts">
+				<a href="tel:+34 664 072 388" class="phone_number">+34 664 072 388</a>
+				<a href="mailto:euforia.business@gmail.com" class="email_link">euforia.business@gmail.com</a>
+				<div class="icons_wrapper">
+					<a href="https://es-es.facebook.com/" class="icon">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+					<a href="https://twitter.com/" class="icon">
+						<i class="fab fa-twitter"></i>
+					</a>
+					<a href="https://www.instagram.com/" class="icon">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<nav class="menu">
+                <div class="title">
+                    Información
+                </div>
+				<a href="#" class="menu_item">
+					Sigue tu envío
+				</a>
+				<a href="#" class="menu_item">
+					Devoluciones y cambios
+				</a>
+				<a href="#" class="menu_item">
+					Entregas y envíos
+				</a>
+				<a href="#" class="menu_item">
+					Condiciones generales
+				</a>
+				<a href="#" class="menu_item">
+					Política de privacidad
+				</a>
+                <a href="#" class="menu_item">
+					Contacto
+				</a>
+			</nav>
+		</div>
+        <div class="col">
+			<nav class="menu">
+                <div class="title">
+                    Menu
+                </div>
+				<a href="#" class="menu_item">
+					Mi carrito
+				</a>
+				<a href="#" class="menu_item">
+					Mi perfil
+				</a>
+				<a href="#" class="menu_item">
+					Edición limitada
+				</a>
+				<a href="{{ url_for('gallery') }}" class="menu_item">
+					Galería
+				</a>
+				<a href="#" class="menu_item">
+					Catálogo
+				</a>
+			</nav>
+		</div>
+	</div>
+	<div class="bottom_footer container">
+		<p>Copyright &copy; 2021, Euforia. All Rights Reserved</p>
+		<p>Demo by <a href="https://github.com/ArturVaskovets">Artur Vaskovets</a></p>
+	</div>
+</footer>
