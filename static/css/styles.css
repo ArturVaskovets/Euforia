@@ -62,6 +62,35 @@ a {
   width: 100%;
 }
 
+.error_wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.error_wrapper .error {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.error_wrapper .error .error_title {
+  font-size: 40px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+.error_wrapper .error .error_msg {
+  font-size: 30px;
+  color: #dc3545;
+  margin-bottom: 50px;
+}
+.error_wrapper .error .error_img img {
+  width: 100%;
+  height: auto;
+}
+
 .header .top_header {
   padding: 15px 0;
   background-color: white;
@@ -88,8 +117,8 @@ a {
 }
 .header .top_header .top_header_inner .social .icon {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: #131313;
   text-align: center;
@@ -100,8 +129,8 @@ a {
   background-color: rgba(19, 19, 19, 0.8);
 }
 .header .top_header .top_header_inner .social .icon i {
-  font-size: 30px;
-  line-height: 50px;
+  font-size: 25px;
+  line-height: 45px;
   color: white;
 }
 .header .top_header .top_header_inner .social .icon + .icon {
@@ -149,4 +178,112 @@ body.home .header .main_header {
 body.home .header .main_header .main_header_inner .extra_image {
   margin: 0 auto;
   max-width: 400px;
+}
+
+.main_slider {
+  width: 100vw;
+  height: 100vh;
+}
+.main_slider .item {
+  height: 100vh;
+  position: relative;
+}
+.main_slider .item .caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Lato", sans-serif;
+  color: #333333;
+  line-height: 1;
+  text-align: center;
+}
+.main_slider .item.colored_text {
+  background-color: rgba(153, 102, 204, 0.5);
+}
+.main_slider .item.colored_text .caption {
+  font-weight: 300;
+  white-space: nowrap;
+}
+.main_slider .item.colored_text .caption .title_1 {
+  display: block;
+  font-size: 135px;
+  color: #9966ff;
+  margin-bottom: 20px;
+}
+.main_slider .item.colored_text .caption .title_2 {
+  display: block;
+  font-size: 109px;
+  color: #999999;
+  margin-bottom: 70px;
+}
+.main_slider .item.colored_text .caption .comment {
+  display: block;
+  font-size: 30px;
+  color: #666666;
+}
+.main_slider .item.right_text img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main_slider .item.right_text .caption {
+  left: 75%;
+  font-size: 80px;
+  font-weight: 300;
+}
+.main_slider .item.multilayer {
+  background-color: #996666;
+}
+.main_slider .item.multilayer::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 5px solid #cc99cc;
+  z-index: 4;
+  pointer-events: none;
+}
+.main_slider .item.multilayer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.main_slider .item.multilayer .diamonds {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  bottom: 15px;
+  width: 100%;
+  z-index: 1;
+}
+.main_slider .item.multilayer .diamonds.top {
+  right: auto;
+  left: 15px;
+  transform: rotate(180deg);
+}
+.main_slider .item.multilayer .diamonds img {
+  object-position: right;
+}
+.main_slider .item.multilayer .gifts {
+  position: absolute;
+  left: 30px;
+  bottom: 5px;
+  width: 25%;
+  z-index: 2;
+}
+.main_slider .item.multilayer .member_card {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 28%;
+  z-index: 3;
+}
+.main_slider .item.multilayer .caption {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 70px;
+  z-index: 5;
 }

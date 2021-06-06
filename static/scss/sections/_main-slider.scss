@@ -1,0 +1,118 @@
+.main_slider {
+  width: 100vw;
+  height: 100vh;
+
+  .item {
+    height: 100vh;
+    position: relative;
+
+    .caption {
+      @include center;
+      font-family: $font_2;
+      color: $color_5;
+      line-height: 1;
+      text-align: center;
+    }
+  }
+
+  .item.colored_text {
+    background-color: rgba($color_1, 0.5);
+    
+    .caption {
+      font-weight: 300;
+      white-space: nowrap;
+
+      .title_1 {
+        display: block;
+        font-size: 135px;
+        color: #9966ff;
+        margin-bottom: 20px;
+      }
+
+      .title_2 {
+        display: block;
+        font-size: 109px;
+        color: #999999;
+        margin-bottom: 70px;
+      }
+
+      .comment {
+        display: block;
+        font-size: 30px;
+        color: #666666;
+      }
+    }
+  }
+
+  .item.right_text {
+    img {
+      @include scale_image;
+    }
+
+    .caption {
+      left: 75%;
+      font-size: 80px;
+      font-weight: 300;
+    }
+  }
+
+  .item.multilayer {
+    background-color: #996666;
+
+    &::before {
+      content: "";
+      @include fill($offset: 10px);
+      border: 5px solid #cc99cc;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    img {
+      @include scale_image(contain);
+    }
+
+    .diamonds {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      bottom: 15px;
+      width: 100%;
+      z-index: 1;
+
+      &.top {
+        right: auto;
+        left: 15px;
+        transform: rotate(180deg);
+      }
+
+      img {
+        object-position: right;
+      }
+    }
+
+    .gifts {
+      position: absolute;
+      left: 30px;
+      bottom: 5px;
+      //width: 500px;
+      width: 25%;
+      z-index: 2;
+    }
+
+    .member_card {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      //width: 550px;
+      width: 28%;
+      z-index: 3;
+    }
+
+    .caption {
+      font-style: italic;
+      font-weight: 700;
+      font-size: 70px;
+      z-index: 5;
+    }
+  }
+}

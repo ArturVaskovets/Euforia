@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+
+{% block content %}
+	<div class="error_wrapper">
+        <div class="error">
+            <div class="error_title">
+                Oops, something went wrong.
+            </div>
+            <div class="error_msg">
+                {{ message }}
+            </div>
+            <div class="error_img">
+                <img src="{{ image }}" alt="">
+            </div>
+        </div>
+    </div>
+{% endblock %}

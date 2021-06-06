@@ -23,22 +23,22 @@
 	}
 }
 
-@mixin fill ($axis: both, $type: absolute) {
+@mixin fill ($axis: both, $type: absolute, $offset: 0) {
 	@if $axis == 'X' {
 		position: $type;
-		left: 0;
-		right: 0;
+		left: $offset;
+		right: $offset;
 
 	} @else if $axis == 'Y' {
 		position: $type;
-		top: 0;
-		bottom: 0;
+		top: $offset;
+		bottom: $offset;
 		
 	} @else {
 		position: $type;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
+		top: $offset;
+		left: $offset;
+		right: $offset;
+		bottom: $offset;
 	}
 }

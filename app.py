@@ -14,7 +14,7 @@ def home(template):
     return render_template(template, **data)
 
 
-"""
+
 @app.errorhandler(400)
 def bad_request(error):
 	return render_template("error.html",message="There are errors in request.", image=url_for('static', filename='img/400.jpg')), 400
@@ -30,4 +30,3 @@ def page_not_found(error):
 @app.errorhandler(500)
 def internal_server_error(error):
 	return render_template("error.html",message="Sorry, server can not process the request.", image=url_for('static', filename='img/500.jpg')),  500
-"""

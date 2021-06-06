@@ -1,0 +1,35 @@
+.error_wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .error {
+    font-family: $font-2;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+
+
+    .error_title {
+      font-size: 40px;
+      color: $color-5;
+      margin-bottom: 20px;
+    }
+
+    .error_msg {
+      font-size: 30px;
+      color: #dc3545;
+      margin-bottom: 50px;
+    }
+
+    .error_img {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
