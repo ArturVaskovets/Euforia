@@ -87,6 +87,15 @@
       align-items: center;
       max-height: 250px;
 
+      .logo {
+        max-width: 250px;
+      }
+
+      .extra_image {
+        display: flex; // For unknown reason it is the only thing that works
+        max-width: 600px;
+      }
+
       img {
         @include scale_image(contain);
       }
@@ -102,8 +111,12 @@ body.home {
       .main_header_inner {
         .extra_image {
           margin: 0 auto;
+          max-width: 400px;
         }
       }
     }
   }
 }
+
+// #966 - bg
+// #cc99cc - frame

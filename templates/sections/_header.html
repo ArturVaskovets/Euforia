@@ -34,9 +34,9 @@
 	</div>
 	<div class="main_header">
         <div class="main_header_inner container">
-            <div class="logo">
+            <a href="/" class="logo">
                 <img src="{{ url_for('static', filename='img/logo.png') }}">
-            </div>
+            </a>
             {% if header_extra_image %}
                 <div class="extra_image">
                     <img src="{{ header_extra_image|safe }}">

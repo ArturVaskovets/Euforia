@@ -1,1 +1,1 @@
-Flask application web - Euforia
+Flask application demo web - Euforia

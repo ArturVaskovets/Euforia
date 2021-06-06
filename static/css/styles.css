@@ -130,6 +130,13 @@ a {
   align-items: center;
   max-height: 250px;
 }
+.header .main_header .main_header_inner .logo {
+  max-width: 250px;
+}
+.header .main_header .main_header_inner .extra_image {
+  display: flex;
+  max-width: 600px;
+}
 .header .main_header .main_header_inner img {
   width: 100%;
   height: 100%;
@@ -141,4 +148,5 @@ body.home .header .main_header {
 }
 body.home .header .main_header .main_header_inner .extra_image {
   margin: 0 auto;
+  max-width: 400px;
 }
