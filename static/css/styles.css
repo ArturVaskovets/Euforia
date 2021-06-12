@@ -259,6 +259,23 @@ body.gallery .header .main_header .main_header_inner .extra_image {
   font-size: 80px;
   font-weight: 300;
 }
+.main_slider .item.right_text .video_link {
+  display: block;
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  width: 70px;
+  height: 70px;
+  transition: transform 0.5s;
+}
+.main_slider .item.right_text .video_link:hover {
+  transform: scale(1.1);
+}
+.main_slider .item.right_text .video_link img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .main_slider .item.multilayer {
   background-color: #996666;
 }

@@ -55,6 +55,24 @@
       font-size: 80px;
       font-weight: 300;
     }
+
+    .video_link {
+      display: block;
+      position: absolute;
+      right: 25px;
+      bottom: 25px;
+      width: 70px;
+      height: 70px;
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      img {
+        @include scale_image(contain);
+      }
+    }
   }
 
   .item.multilayer {
