@@ -1,10 +1,18 @@
-from flask import Flask, render_template, url_for, abort
+from flask import Flask, render_template, url_for, abort, redirect, request
 from flask_mobility import Mobility
 from flask_mobility.decorators import mobile_template
 
 app = Flask(__name__)
 Mobility(app)
 
+@app.before_request
+def disable_mobile_version():
+    print(request.endpoint)
+    if request.MOBILE and \
+            request.endpoint != "home" \
+            and 'static' not in request.endpoint:
+        print("redirected")
+        return redirect(url_for("home"), 302)
 
 @app.route('/')
 @mobile_template('{mobile/}home.html')
@@ -40,12 +48,58 @@ def home(template):
     }
     return render_template(template, **data)
 
-@app.route('/gallery')
+@app.route('/galeria')
 def gallery():
     data = {
         "current_section": "gallery",
         "header_extra_image": url_for('static', filename='img/gallery_title.png'),
         "gallery" : [
+            {
+                "url": url_for('static', filename='img/gallery/img_1.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_2.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_3.jpg'),
+                "width": "calc((100% - 25px) / 2)",
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_4.jpg'),
+                "width": "calc((100% - 25px) / 2)",
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_5.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_6.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_7.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_8.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_9.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_10.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_11.jpg')
+            }
+        ]
+    }
+
+    return render_template('gallery.html', **data)
+
+@app.route('/joyas')
+def jewelry():
+    data = {
+        "current_section": "jewelry",
+        "header_extra_image": url_for('static', filename='img/models.png'),
+        "jewelry" : [
             {
                 "url": url_for('static', filename='img/gallery/img_1.jpg')
             },
