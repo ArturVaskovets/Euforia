@@ -117,3 +117,29 @@ body.home {
     }
   }
 }
+
+body.gallery {
+  .header {
+    .main_header {
+      padding: 10px 0;
+
+      .main_header_inner {
+        justify-content: flex-start;
+
+        .logo {
+          width: calc(100% / 3);
+          max-width: none;
+
+          img {
+            max-width: 250px;
+          }
+        }
+
+        .extra_image {
+          width: calc(100% / 3);
+          padding: 0 75px;
+        }
+      }
+    }
+  }
+}

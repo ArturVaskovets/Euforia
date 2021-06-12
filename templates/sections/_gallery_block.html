@@ -1,0 +1,9 @@
+{% if gallery %}
+    <section class="gallery_block container">
+        {% for image in gallery %}
+            <a href="{{ image.url|safe }}" data-fancybox="gallery" class="gallery_image" style="{% if image.width %}width: {{ image.width|safe }};{% endif %} {% if image.height %}height: {{ image.height|safe }}{% endif %}">
+                <img src="{{ image.url|safe }}">
+            </a>
+        {% endfor %}
+    </section>
+{% endif %}

@@ -42,8 +42,49 @@ def home(template):
 
 @app.route('/gallery')
 def gallery():
-    abort(403)
-    #return render_template('gallery.html', **data)
+    data = {
+        "current_section": "gallery",
+        "header_extra_image": url_for('static', filename='img/gallery_title.png'),
+        "gallery" : [
+            {
+                "url": url_for('static', filename='img/gallery/img_1.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_2.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_3.jpg'),
+                "width": "calc((100% - 25px) / 2)",
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_4.jpg'),
+                "width": "calc((100% - 25px) / 2)",
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_5.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_6.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_7.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_8.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_9.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_10.jpg')
+            },
+            {
+                "url": url_for('static', filename='img/gallery/img_11.jpg')
+            }
+        ]
+    }
+
+    return render_template('gallery.html', **data)
 
 
 @app.errorhandler(400)

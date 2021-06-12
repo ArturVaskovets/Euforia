@@ -1,0 +1,27 @@
+.gallery_block {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+
+  .gallery_image {
+    display: block;
+    width: calc((100% - 50px) / 3);
+    height: auto;
+    margin-bottom: 25px;
+    transition: opacity 0.5s;
+
+    &:last-of-type {
+      margin: 0 auto 25px; // Used because the count of items is known
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    img {
+      @include scale_image;
+    }
+  }
+}
