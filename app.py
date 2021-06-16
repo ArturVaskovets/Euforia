@@ -7,11 +7,9 @@ Mobility(app)
 
 @app.before_request
 def disable_mobile_version():
-    print(request.endpoint)
     if request.MOBILE and \
             request.endpoint != "home" \
             and 'static' not in request.endpoint:
-        print("redirected")
         return redirect(url_for("home"), 302)
 
 @app.route('/')
@@ -101,44 +99,69 @@ def jewelry():
         "header_extra_image": url_for('static', filename='img/models.png'),
         "jewelry" : [
             {
-                "url": url_for('static', filename='img/gallery/img_1.jpg')
+                "brand": "Euforia",
+                "price": 60,
+                "material": "Plata",
+                "description": "Anillo grueso de plata decorado con piedras y una circonita",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/1/1_amarillo.png'),
+                        "color": "Amarillo"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/1/1_azul.png'),
+                        "color": "Azul"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/1/1_turquesa.png'),
+                        "color": "Turquesa"
+                    }
+                ]
             },
             {
-                "url": url_for('static', filename='img/gallery/img_2.jpg')
+                "brand": "Oro Vivo",
+                "price": 50,
+                "material": "Plata",
+                "description": "Anillo fino de plata, en forma de “V” con una piedra de circonita en medio",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/2/2_amarillo.png'),
+                        "color": "Amarillo"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/2/2_azul.png'),
+                        "color": "Azul"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/2/2_turquesa.png'),
+                        "color": "Turquesa"
+                    }
+                ]
             },
             {
-                "url": url_for('static', filename='img/gallery/img_3.jpg'),
-                "width": "calc((100% - 25px) / 2)",
-            },
-            {
-                "url": url_for('static', filename='img/gallery/img_4.jpg'),
-                "width": "calc((100% - 25px) / 2)",
-            },
-            {
-                "url": url_for('static', filename='img/gallery/img_5.jpg')
-            },
-            {
-                "url": url_for('static', filename='img/gallery/img_6.jpg')
-            },
-            {
-                "url": url_for('static', filename='img/gallery/img_7.jpg')
-            },
-            {
-                "url": url_for('static', filename='img/gallery/img_8.jpg')
-            },
-            {
-                "url": url_for('static', filename='img/gallery/img_9.jpg')
-            },
-            {
-                "url": url_for('static', filename='img/gallery/img_10.jpg')
-            },
-            {
-                "url": url_for('static', filename='img/gallery/img_11.jpg')
+                "brand": "Pandora",
+                "price": 60,
+                "material": "Plata",
+                "description": "Anillo fino de plata con tres piedras de circonita en forma de rombo.",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/3/3_amarillo.jpg'),
+                        "color": "Amarillo"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/3/3_azul.jpg'),
+                        "color": "Azul"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/3/3_turquesa.jpg'),
+                        "color": "Turquesa"
+                    }
+                ]
             }
         ]
     }
 
-    return render_template('gallery.html', **data)
+    return render_template('shopping.html', **data)
 
 
 @app.errorhandler(400)

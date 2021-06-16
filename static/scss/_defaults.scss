@@ -4,9 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
 $font_1: 'Dancing Script', cursive;
 $font_2: 'Lato', sans-serif;
+$font_3: 'Oswald', sans-serif;
 
 
 $color_1: #9966cc;
@@ -14,6 +16,13 @@ $color_2: #bba0ef;
 $color_3: #131313;
 $color_4: #D7D7D8;
 $color_5: #333333;
+$color_6: #DAD3E7;
+$color_7: #EAD2D2;
+$color_8: #B291F1;
+$color_9: #cc9999;
+$color_10: #666666;
+$color_11: #f6f2ff;
+$color_12: #edddc3;
 
 * {
 	box-sizing: border-box;

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -428,6 +429,139 @@ body.gallery .header .main_header .main_header_inner .extra_image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.products_wrapper .products_top-buttons {
+  padding: 20px 0;
+  background-color: #DAD3E7;
+}
+.products_wrapper .products_top-buttons .products_top-inner {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: 29px;
+  letter-spacing: 0;
+  line-height: 1;
+  color: #131313;
+}
+.products_wrapper .products_top-buttons .products_top-inner .link {
+  display: inline-block;
+}
+.products_wrapper .products_top-buttons .products_top-inner .sort_buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+.products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_buttons_label {
+  margin-right: 50px;
+}
+.products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_button {
+  display: inline-block;
+  cursor: pointer;
+}
+.products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_button + .sort_button {
+  padding-left: 30px;
+  margin-left: 30px;
+  border-left: 2px solid #131313;
+  padding-bottom: 5px;
+}
+.products_wrapper .products_main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+.products_wrapper .products_main .products_filters {
+  width: 250px;
+  margin-right: 60px;
+}
+.products_wrapper .products_main .products_filters .filters_block {
+  padding: 20px;
+  margin-bottom: 35px;
+  background-color: #EAD2D2;
+  border-radius: 5px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 0;
+  line-height: 1;
+  color: #cc9999;
+}
+.products_wrapper .products_main .products_filters .filters_block .filters_block_title {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #B291F1;
+  text-align: center;
+  font-size: 29px;
+}
+.products_wrapper .products_main .products_filters .filters_block .filters_block_items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.products_wrapper .products_main .products_filters .filters_block .filters_block_items .filters_block_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.products_wrapper .products_main .products_filters .filters_block .filters_block_items .filters_block_item .checkbox {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #666666;
+  border-radius: 2px;
+  margin-right: 20px;
+}
+.products_wrapper .products_main .products_filters .filters_block .filters_block_items .filters_block_item .checkbox::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  background-color: transparent;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.products_wrapper .products_main .products_filters .filters_block .filters_block_items .filters_block_item.active::before {
+  background-color: #666666;
+}
+.products_wrapper .products_main .products_items {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.products_wrapper .products_main .products_items .product {
+  position: relative;
+  width: calc((100% - 104px) / 3);
+  padding: 10px 5px 50px;
+  background-color: #f6f2ff;
+  border-radius: 5px;
+}
+.products_wrapper .products_main .products_items .product .product_images {
+  width: 100%;
+  height: 250px;
+}
+.products_wrapper .products_main .products_items .product .product_images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.products_wrapper .products_main .products_items .product:nth-of-type(3n + 1)::before,
+.products_wrapper .products_main .products_items .product:nth-of-type(3n + 2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  left: calc(100% + 25px);
+  background-color: #edddc3;
 }
 
 .footer {

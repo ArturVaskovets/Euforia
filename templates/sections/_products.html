@@ -1,0 +1,132 @@
+<section class="products_wrapper">
+    <div class="products_top-buttons">
+        <div class="products_top-inner container">
+            <a href="{{ url_for('home') }}" class="link">
+                Inicio
+            </a>
+            <div class="sort_buttons">
+                <div class="sort_buttons_label">
+                    Ordenar por:
+                </div>
+                <a class="sort_button" data-sort="min-price">
+                    menor precio
+                </a>
+                <a class="sort_button" data-sort="max-price">
+                    mayor precio
+                </a>
+                <a class="sort_button" data-sort="limited-edition">
+                    edición limitada
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="products_main container">
+        <div class="products_filters">
+            <div class="filters_block brand">
+                <div class="filters_block_title">
+                    Marca
+                </div>
+                <ul class="filters_block_items">
+                    <li class="filters_block_item" data-filter-brand="Euforia">
+                        <span class="checkbox"></span>
+                        <span class="label">Euforia</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-brand="Oro Vivo">
+                        <span class="checkbox"></span>
+                        <span class="label">Oro Vivo</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-brand="Pandora">
+                        <span class="checkbox"></span>
+                        <span class="label">Pandora</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-brand="Calvin Klein">
+                        <span class="checkbox"></span>
+                        <span class="label">Calvin Klein</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="filters_block price">
+                <div class="filters_block_title">
+                    Precio
+                </div>
+                <ul class="filters_block_items">
+                    <li class="filters_block_item">
+                        <span class="checkbox"></span>
+                        Euforia
+                    </li>
+                    <li class="filters_block_item">
+                        <span class="checkbox"></span>
+                        Euforia
+                    </li>
+                </ul>
+            </div>
+            <div class="filters_block material">
+                <div class="filters_block_title">
+                    Material
+                </div>
+                <ul class="filters_block_items">
+                    <li class="filters_block_item" data-filter-material="Plata">
+                        <span class="checkbox"></span>
+                        <span class="label">Plata</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-material="Oro">
+                        <span class="checkbox"></span>
+                        <span class="label">Oro</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="filters_block color">
+                <div class="filters_block_title">
+                    Color
+                </div>
+                <ul class="filters_block_items">
+                    <li class="filters_block_item" data-filter-color="Turquesa">
+                        <span class="checkbox"></span>
+                        <span class="label">Turquesa</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-color="Rosa">
+                        <span class="checkbox"></span>
+                        <span class="label">Rosa</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-color="Amarillo">
+                        <span class="checkbox"></span>
+                        <span class="label">Amarillo</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-color="Azul">
+                        <span class="checkbox"></span>
+                        <span class="label">Azul</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-color="Morado">
+                        <span class="checkbox"></span>
+                        <span class="label">Morado</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-color="Verde">
+                        <span class="checkbox"></span>
+                        <span class="label">Verde</span>
+                    </li>
+                    <li class="filters_block_item" data-filter-color="Blanco">
+                        <span class="checkbox"></span>
+                        <span class="label">Blanco</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="products_items">
+            {% for product in jewelry %}
+                <div class="product">
+                    <div class="product_images">
+                        {% for pic in product.pictures %}
+                            <img src="{{ pic.url|safe }}" class="{{ pic.color|safe }}" {% if not loop.first %}style="display: none"{% endif %}>
+                        {% endfor %}
+                        <div class="product_colors">
+
+                        </div>
+                    </div>
+                    <div class="product_content">
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
