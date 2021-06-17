@@ -10,6 +10,8 @@
     width: calc((100% - 50px) / 3);
     height: auto;
     margin-bottom: 25px;
+    border-radius: 5px;
+    overflow: hidden;
     transition: opacity 0.5s;
 
     &:last-of-type {

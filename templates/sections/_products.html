@@ -31,15 +31,15 @@
                         <span class="checkbox"></span>
                         <span class="label">Euforia</span>
                     </li>
-                    <li class="filters_block_item" data-filter-brand="Oro Vivo">
+                    <li class="filters_block_item disabled" data-filter-brand="Oro Vivo">
                         <span class="checkbox"></span>
                         <span class="label">Oro Vivo</span>
                     </li>
-                    <li class="filters_block_item" data-filter-brand="Pandora">
+                    <li class="filters_block_item disabled" data-filter-brand="Pandora">
                         <span class="checkbox"></span>
                         <span class="label">Pandora</span>
                     </li>
-                    <li class="filters_block_item" data-filter-brand="Calvin Klein">
+                    <li class="filters_block_item disabled" data-filter-brand="Calvin Klein">
                         <span class="checkbox"></span>
                         <span class="label">Calvin Klein</span>
                     </li>
@@ -49,16 +49,18 @@
                 <div class="filters_block_title">
                     Precio
                 </div>
-                <ul class="filters_block_items">
-                    <li class="filters_block_item">
-                        <span class="checkbox"></span>
-                        Euforia
-                    </li>
-                    <li class="filters_block_item">
-                        <span class="checkbox"></span>
-                        Euforia
-                    </li>
-                </ul>
+                <div class="filters_block_slider">
+                    <div class="price_info">
+                        <div class="label">min</div>
+                        <div class="price_values">
+                            <span class="price_min_value">{{ jewelry_min_price|safe }}</span>&euro; - <span class="price_max_value">{{ jewelry_max_price|safe }}</span>&euro;
+                            <input type="hidden" class="price_min" value="{{ jewelry_min_price|safe }}">
+                            <input type="hidden" class="price_max" value="{{ jewelry_max_price|safe }}">
+                        </div>
+                        <div class="label">max</div>
+                    </div>
+                    <div class="price_slider" data-min-price="{{ jewelry_min_price|safe }}" data-max-price="{{ jewelry_max_price|safe }}"></div>
+                </div>
             </div>
             <div class="filters_block material">
                 <div class="filters_block_title">
@@ -108,22 +110,47 @@
                         <span class="checkbox"></span>
                         <span class="label">Blanco</span>
                     </li>
+                    <li class="filters_block_item" data-filter-color="Marron">
+                        <span class="checkbox"></span>
+                        <span class="label">Marron</span>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="products_items">
             {% for product in jewelry %}
-                <div class="product">
-                    <div class="product_images">
+                {% set product_loop = loop %}
+                <div class="item"
+                     data-brand="{{ product.brand|safe }}"
+                     data-price="{{ product.price|safe }}"
+                     data-material="{{ product.material|safe }}"
+                     data-colors="{% for pic in product.pictures %}{{ pic.color|safe }}{% if not loop.last %};{% endif %}{% endfor %}">
+                    <div class="item_images">
                         {% for pic in product.pictures %}
-                            <img src="{{ pic.url|safe }}" class="{{ pic.color|safe }}" {% if not loop.first %}style="display: none"{% endif %}>
+                            <a href="{{ pic.url|safe }}" class="item_image {{ pic.color|safe }}" data-fancybox="product_{{ product_loop.index }}" {% if not loop.first %}style="display: none"{% endif %}>
+                                <img src="{{ pic.url|safe }}">
+                            </a>
                         {% endfor %}
-                        <div class="product_colors">
-
+                        <div class="item_colors">
+                            {% for pic in product.pictures %}
+                                {% if pic.color %}
+                                    <span class="item_color {% if loop.first %}active{% endif %}" data-color="{{ pic.color|safe }}"></span>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
-                    <div class="product_content">
-
+                    <div class="item_content">
+                        <div class="item_info">
+                            <div class="item_desc">
+                                {{ product.description|safe }}
+                            </div>
+                            <div class="item_price">
+                                {{ product.price|safe }}&euro;
+                            </div>
+                        </div>
+                        <a class="item_buy-button">
+                            Añadir a la cesta
+                        </a>
                     </div>
                 </div>
             {% endfor %}

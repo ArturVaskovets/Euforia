@@ -119,7 +119,7 @@ def jewelry():
                 ]
             },
             {
-                "brand": "Oro Vivo",
+                "brand": "Euforia",
                 "price": 50,
                 "material": "Plata",
                 "description": "Anillo fino de plata, en forma de “V” con una piedra de circonita en medio",
@@ -139,8 +139,8 @@ def jewelry():
                 ]
             },
             {
-                "brand": "Pandora",
-                "price": 60,
+                "brand": "Euforia",
+                "price": 68,
                 "material": "Plata",
                 "description": "Anillo fino de plata con tres piedras de circonita en forma de rombo.",
                 "pictures": [
@@ -157,9 +157,156 @@ def jewelry():
                         "color": "Turquesa"
                     }
                 ]
+            },
+            {
+                "brand": "Euforia",
+                "price": 35,
+                "material": "Plata",
+                "description": "Anillo fino con decorado trenzado y una piedra de circonita redonda",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/4/4_amarillo.png'),
+                        "color": "Amarillo"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/4/4_rosa.png'),
+                        "color": "Rosa"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/4/4_turquesa.png'),
+                        "color": "Turquesa"
+                    }
+                ]
+            },
+            {
+                "brand": "Euforia",
+                "price": 75,
+                "material": "Plata",
+                "description": "Anillo fino de plata con decoración simétrica de dos piedras circonitas a los lados y una de tamaño mayor en medio",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/5/5_amarillo.jpg'),
+                        "color": "Amarillo"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/5/5_turquesa.jpg'),
+                        "color": "Turquesa"
+                    }
+
+                ]
+            },
+            {
+                "brand": "Euforia",
+                "price": 57,
+                "material": "Plata",
+                "description": "Anillo abierto con dos piedras circonitas de colores en los extremos",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/6/6_azul.jpg'),
+                        "color": "Azul"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/6/6_morado.jpg'),
+                        "color": "Morado"
+                    }
+
+                ]
+            },
+            {
+                "brand": "Euforia",
+                "price": 30,
+                "material": "Plata",
+                "description": "Sencillo anillo de plata, fino y liso",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/7/7_plata.jpg')
+                    }
+
+                ]
+            },
+            {
+                "brand": "Euforia",
+                "price": 125,
+                "material": "Oro",
+                "description": "Anillo fino de oro decoración en forma de estrella y piedras preciosas de colores",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/8/8_blanco.jpg'),
+                        "color": "Blanco"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/8/8_verde.jpg'),
+                        "color": "Verde"
+                    }
+
+                ]
+            },
+            {
+                "brand": "Euforia",
+                "price": 200,
+                "material": "Oro",
+                "description": "Anillo grueso de oro con agujeros rectangulares y decoración de piedras preciosas",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/9/9_blanco.jpg'),
+                        "color": "Blanco"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/9/9_rosa.jpg'),
+                        "color": "Rosa"
+                    }
+
+                ]
+            },
+            {
+                "brand": "Euforia",
+                "price": 125,
+                "material": "Oro",
+                "description": "Anillo fino de oro en forma de “V” con decoración de ágata y circonitas de colores",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/10/10_blanco.png'),
+                        "color": "Blanco"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/10/10_marron.png'),
+                        "color": "Marron"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/10/10_rosa.png'),
+                        "color": "Rosa"
+                    }
+                ]
+            },
+            {
+                "brand": "Euforia",
+                "price": 75,
+                "material": "Oro",
+                "description": "Anillo fino de oro decorado con piedras circonitas de colores",
+                "pictures": [
+                    {
+                        "url": url_for('static', filename='img/products/11/11_blanco.jpg'),
+                        "color": "Blanco"
+                    },
+                    {
+                        "url": url_for('static', filename='img/products/11/11_verde.jpg'),
+                        "color": "Verde"
+                    }
+                ]
             }
         ]
     }
+
+    min_price = max_price = data.get("jewelry")[0].get("price")
+    for product in data.get("jewelry"):
+        if product.get("price") < min_price:
+            min_price = product.get("price")
+        if product.get("price") > max_price:
+            max_price = product.get("price")
+
+    data["jewelry_min_price"] = min_price
+    data["jewelry_max_price"] = max_price
+
 
     return render_template('shopping.html', **data)
 

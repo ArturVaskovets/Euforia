@@ -47,7 +47,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 20px 0;
+    padding: 50px 0;
 
     .products_filters {
       width: 250px;
@@ -84,6 +84,10 @@
             margin-bottom: 5px;
             cursor: pointer;
 
+            &.disabled {
+              color: #aaaaaa;
+            }
+
             .checkbox {
               position: relative;
               width: 16px;
@@ -101,13 +105,52 @@
                 border-radius: 2px;
                 transition: all 0.3s;
               }
-
             }
           }
 
           .filters_block_item.active {
-            &::before {
+            .checkbox::before {
               background-color: $color_10;
+            }
+          }
+        }
+
+        .filters_block_slider {
+          .price_info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: 20px 0 10px;
+
+            .label {
+              font-size: 15px;
+            }
+
+            .price_values {
+              font-size: 20px;
+            }
+          }
+
+          .price_slider {
+            border: none;
+            height: 5px;
+            background-color: #D4CECE;
+
+            .ui-slider-range {
+              background-color: $color_8;
+              border: none;
+              border-radius: 0;
+            }
+
+            .ui-slider-handle {
+              top: -5px;
+              width: 15px;
+              height: 15px;
+              border: 1px solid $color_10;
+              border-radius: 2px;
+              background-color: $color_11;
+              outline: none;
+              cursor: pointer;
             }
           }
         }
@@ -115,44 +158,165 @@
     }
 
     .products_items {
+      position: relative;
       flex: 1;
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      
-      .product {
-        position: relative;
-        width: calc((100% - 104px) / 3);
-        padding: 10px 5px 50px;
-        background-color: $color_11;
-        border-radius: 5px;
-        
-        .product_images {
-          width: 100%;
-          height: 250px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 52px;
 
-          img {
-            @include scale_image;
-          }
-          
-          .product_colors {
-            
-          }
-        }
-        
-        .product_content {
-          
-        }
+      &::before,
+      &::after {
+        content: "";
+        @include fill(Y);
+        width: 2px;
+        background-color: $color_12;
       }
 
-      .product:nth-of-type(3n + 1),
-      .product:nth-of-type(3n + 2) {
-        &::before {
-          content: "";
-          @include fill(Y);
-          width: 2px;
-          left: calc(100% + 25px);
-          background-color: $color_12;
+      &::before {
+        left: calc((100% - 104px) / 3 + 25px);
+      }
+
+      &::after {
+        right: calc((100% - 104px) / 3 + 25px);
+      }
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 10px 5px 15px;
+        background-color: $color_11;
+        border-radius: 5px;
+
+        .item_images {
+          position: relative;
+          width: 100%;
+          height: 250px;
+          margin-bottom: 15px;
+
+          .item_image {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            img {
+              @include scale_image;
+            }
+          }
+
+          .item_colors {
+            position: absolute;
+            left: 15px;
+            bottom: 15px;
+            opacity: 0.3;
+            transition: all 0.3s;
+
+            &:hover {
+              opacity: 1;
+            }
+
+            .item_color {
+              display: inline-block;
+              vertical-align: middle;
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              cursor: pointer;
+              margin: 3px;
+              transition: all 0.3s;
+
+              &.active {
+                width: 20px;
+                height: 20px;
+                margin: 0;
+              }
+
+              &[data-color='Amarillo'] {
+                background-color: #cc9933;
+              }
+
+              &[data-color='Turquesa'] {
+                background-color: #006666;
+              }
+
+              &[data-color='Rosa'] {
+                background-color: #cc6699;
+              }
+
+              &[data-color='Azul'] {
+                background-color: #6699ff;
+              }
+
+              &[data-color='Verde'] {
+                background-color: #669933;
+              }
+
+              &[data-color='Blanco'] {
+                background-color: #99ccff;
+              }
+
+              &[data-color='Morado'] {
+                background-color: #9966ff;
+              }
+
+              &[data-color='Marron'] {
+                background-color: #996633;
+              }
+            }
+          }
+        }
+
+        .item_content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 0 10px;
+          font-family: $font_2;
+          font-weight: 400;
+          font-size: 16px;
+          letter-spacing: 0;
+          line-height: 18px;
+          color: $color_3;
+
+          .item_info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            margin-bottom: 20px;
+
+            .item_desc {
+              text-align: justify;
+            }
+
+            .item_price {
+              margin-left: 20px;
+              font-family: $font_1;
+              font-weight: 700;
+              font-size: 25px;
+              text-align: right;
+              white-space: nowrap;
+              line-height: 1;
+            }
+          }
+
+          .item_buy-button {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            border-radius: 5px;
+            background-color: $color_1;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.3s;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
         }
       }
     }
