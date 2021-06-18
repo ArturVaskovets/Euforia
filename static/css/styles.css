@@ -462,14 +462,41 @@ body.gallery .header .main_header .main_header_inner .extra_image {
   margin-right: 50px;
 }
 .products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_button {
+  position: relative;
   display: inline-block;
   cursor: pointer;
+  padding-bottom: 5px;
+}
+.products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 5px);
+  width: 0;
+  height: 2px;
+  background-color: #131313;
+  transition: all 0.3s;
+}
+.products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_button.active::after {
+  width: 100%;
 }
 .products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_button + .sort_button {
-  padding-left: 30px;
-  margin-left: 30px;
-  border-left: 2px solid #131313;
-  padding-bottom: 5px;
+  margin-left: 32px;
+}
+.products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_button + .sort_button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: calc(100% + 15px);
+  width: 2px;
+  background-color: #131313;
+}
+.products_wrapper .products_top-buttons .products_top-inner .sort_buttons .sort_buttons_text {
+  margin-left: 50px;
 }
 .products_wrapper .products_main {
   display: flex;
@@ -591,10 +618,8 @@ body.gallery .header .main_header .main_header_inner .extra_image {
   right: calc((100% - 104px) / 3 + 25px);
 }
 .products_wrapper .products_main .products_items .item {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  padding: 10px 5px 15px;
+  padding: 5px 5px 15px;
   background-color: #f6f2ff;
   border-radius: 5px;
 }
@@ -602,7 +627,6 @@ body.gallery .header .main_header .main_header_inner .extra_image {
   position: relative;
   width: 100%;
   height: 250px;
-  margin-bottom: 15px;
 }
 .products_wrapper .products_main .products_items .item .item_images .item_image {
   display: block;
@@ -664,11 +688,11 @@ body.gallery .header .main_header .main_header_inner .extra_image {
   background-color: #996633;
 }
 .products_wrapper .products_main .products_items .item .item_content {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 10px;
+  height: calc(100% - 250px);
+  padding: 15px 10px 0;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 16px;

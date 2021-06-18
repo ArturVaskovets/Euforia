@@ -13,13 +13,16 @@ $(document).ready(function () {
         $('html, body').animate({scrollTop: 0}, 1000);
     });
 
-    // Jewelry
+    // JEWELRY
+    // Color selector
     $(".products_wrapper .products_items .item_color").on("click", function () {
         let selected_color = $(this).attr("data-color");
         $(this).addClass("active").siblings().removeClass("active");
         $(this).closest(".item_images").find(".item_image." + selected_color).show().siblings(".item_image").hide();
     });
 
+
+    // Price slider
     $(".products_wrapper .products_filters .filters_block_slider .price_slider").each(function () {
         let min_price = Number($(this).attr("data-min-price"));
         let max_price = Number($(this).attr("data-max-price"));
@@ -39,6 +42,37 @@ $(document).ready(function () {
         });
     });
 
+    // Sort buttons
+    $(".products_wrapper .sort_button").on("click", function () {
+        $(this).toggleClass("active").siblings(".sort_button").removeClass("active");
+        let sort_by = ($(this).hasClass("active") ? $(this).attr('data-sort') : "default");
+        let all_items = $(".products_wrapper .products_items .item");
+
+        switch (sort_by) {
+            case "min-price":
+                all_items.sort(function (a, b) {
+                   let price1 = Number($(a).attr("data-price"));
+                   let price2 = Number($(b).attr("data-price"));
+                   return price1 - price2;
+                });
+                break;
+            case "max-price":
+                all_items.sort(function (a, b) {
+                   let price1 = Number($(a).attr("data-price"));
+                   let price2 = Number($(b).attr("data-price"));
+                   return price2 - price1;
+                });
+                break;
+            default:
+                break;
+        }
+
+        all_items.each(function (index) {
+            $(this).css({"order": index});
+        })
+    });
+
+    // Filter buttons
     $(".products_wrapper .products_filters .filters_block_item").on("click", function () {
         if (!$(this).hasClass("disabled"))
         {

@@ -29,15 +29,44 @@
         }
 
         .sort_button {
+          position: relative;
           display: inline-block;
           cursor: pointer;
+          padding-bottom: 5px;
+
+          &::after {
+            content: "";
+            display: block;
+            @include center(X);
+            top: calc(100% + 5px);
+            width: 0;
+            height: 2px;
+            background-color: $color_3;
+            transition: all 0.3s;
+          }
+        }
+
+        .sort_button.active {
+          &::after {
+            width: 100%;
+          }
         }
 
         .sort_button + .sort_button {
-          padding-left: 30px;
-          margin-left: 30px;
-          border-left: 2px solid $color_3;
-          padding-bottom: 5px;
+          margin-left: 32px;
+
+          &::before {
+            content: "";
+            display: block;
+            @include fill(Y);
+            right: calc(100% + 15px);
+            width: 2px;
+            background-color: $color_3;
+          }
+        }
+
+        .sort_buttons_text {
+          margin-left: 50px;
         }
       }
     }
@@ -181,10 +210,8 @@
       }
 
       .item {
-        display: flex;
-        flex-direction: column;
         position: relative;
-        padding: 10px 5px 15px;
+        padding: 5px 5px 15px;
         background-color: $color_11;
         border-radius: 5px;
 
@@ -192,7 +219,6 @@
           position: relative;
           width: 100%;
           height: 250px;
-          margin-bottom: 15px;
 
           .item_image {
             display: block;
@@ -267,11 +293,11 @@
         }
 
         .item_content {
-          flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 0 10px;
+          height: calc(100% - 250px);
+          padding: 15px 10px 0;
           font-family: $font_2;
           font-weight: 400;
           font-size: 16px;
